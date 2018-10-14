@@ -6,4 +6,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <StartArguments>1 10 C:/Users/智博/Desktop/log.csv</StartArguments>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <StartArguments>1 10 C:/Users/智博/Desktop/log.csv</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <StartArguments>1 10 C:/Users/智博/Desktop/log.csv</StartArguments>
+  </PropertyGroup>
 </Project>

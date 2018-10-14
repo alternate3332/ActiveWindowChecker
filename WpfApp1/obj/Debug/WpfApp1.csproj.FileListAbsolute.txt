@@ -28,3 +28,4 @@ C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\Debug\WpfApp1.g.resource
 C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
 C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
 C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
+C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\Debug\WpfApp1.csproj.ResolveComReference.cache

@@ -9,6 +9,7 @@ using System.Windows.Threading;
 using System.Timers;
 using System.Diagnostics;
 using System.Threading;
+using Microsoft.Office.Interop.Excel;
 
 public struct LASTINPUTINFO
 {
@@ -36,14 +37,31 @@ public class Win32API
         return ((uint)Environment.TickCount - info.dwTime);
     }
 
-    public static string GetActiveWindowName()
+    public static string[] GetActiveWindowName()
     {
         IntPtr hWnd = GetForegroundWindow();
         int id;
         GetWindowThreadProcessId(hWnd, out id);
         Process p = Process.GetProcessById(id);
-        Console.WriteLine(p.ProcessName);
-        return p.ProcessName;
+        //Console.WriteLine(p.ProcessName);
+        string path = p.MainModule.FileName;
+        if(p.ProcessName == "EXCEL")
+        {
+            Microsoft.Office.Interop.Excel.Application oXL;
+            Microsoft.Office.Interop.Excel.Workbook oWB;
+            Microsoft.Office.Interop.Excel.Worksheet oSheet;
+            oXL = ( Microsoft.Office.Interop.Excel.Application)System.Runtime.InteropServices.Marshal.GetActiveObject("Excel.Application");
+            oXL.Visible = true;
+            oWB = ( Microsoft.Office.Interop.Excel.Workbook)oXL.ActiveWorkbook;
+            
+            // oWB.CustomDocumentProperties;
+            //docProps = oWB.CustomDocumentProperties
+            int i = 0;
+        }
+        //  path.Substring(path.LastIndexOf(@"\") + 1)
+        
+        return new String[] { p.ProcessName };
+    
     }
 
 
@@ -56,7 +74,7 @@ namespace WpfApp1
     /// <summary>
     /// App.xaml の相互作用ロジック
     /// </summary>
-    public partial class App : Application
+    public partial class App : System.Windows.Application
     {
         private const int DEFAULT_CHECK_INTERVAL = 3000; // 3s
         private const int DEFAULT_IDLE_TILE = 300000;   // 300s 
@@ -131,16 +149,18 @@ namespace WpfApp1
 
         private void saveLog()
         { 
-            string processName = Win32API.GetActiveWindowName();
+            string[] processNames = Win32API.GetActiveWindowName();
+            // processName [0]=>category, [1]=>fileName
+
 
             if (Win32API.GetIdleTime() >= this.idleTime)
             {
-                processName = "IDLE";
+                processNames[0] = "IDLE";
             }
 
             string date = DateTime.Now.ToString("yyyyMMdd");
             string time = DateTime.Now.ToString("HHmmss");
-            string[] args = { processName, date, time };
+            string[] args = { processNames[0],  date, time };
 
             FileWriter.FileWriter_RESULT res = FileWriter.write(args);
             if (res == FileWriter.FileWriter_RESULT.SUCCESS)
@@ -156,7 +176,8 @@ namespace WpfApp1
                 this.error_log = "Error: File open error.";
             }
 
-            this.active_window_str = processName;
+            this.active_window_str = processNames[0];
+
 
             // update UI
             new Thread(new ThreadStart(ChangeUI)).Start();
@@ -172,13 +193,12 @@ namespace WpfApp1
         // TimerスレッドからGUIを更新するための準備
         private void ChangeUI()
         {
-            string processName = Win32API.GetActiveWindowName();
-            for (int i = 0; i <= 10; i++)
-            {
+            //for (int i = 0; i <= 10; i++)
+            //{
                 Updater uiUpdater = new Updater(UpdateUI);
-                Dispatcher.BeginInvoke(DispatcherPriority.Send, uiUpdater, processName);
-                Thread.Sleep(500);
-            }
+                Dispatcher.BeginInvoke(DispatcherPriority.Send, uiUpdater, null);
+                //Thread.Sleep(500);
+            //}
         }
 
         private delegate void Updater(string contentI);
@@ -196,6 +216,7 @@ namespace WpfApp1
             this.checkTimer.Elapsed += this.OnTimedEvent;
             this.checkTimer.Start();
 
+            
         }
 
 

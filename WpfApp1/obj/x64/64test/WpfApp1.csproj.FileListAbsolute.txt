@@ -1,0 +1,12 @@
+C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\bin\x64\64test\WpfApp1.exe.config
+C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\bin\x64\64test\WpfApp1.exe
+C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\x64\64test\MainWindow.g.cs
+C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\x64\64test\App.g.cs
+C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\x64\64test\WpfApp1_MarkupCompile.cache
+C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\x64\64test\WpfApp1_MarkupCompile.lref
+C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\x64\64test\MainWindow.baml
+C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\x64\64test\WpfApp1.g.resources
+C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\x64\64test\WpfApp1.Properties.Resources.resources
+C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\x64\64test\WpfApp1.csproj.GenerateResource.cache
+C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\x64\64test\WpfApp1.csproj.CoreCompileInputs.cache
+C:\Users\智博\Desktop\ActiveWindowChecker\WpfApp1\obj\x64\64test\WpfApp1.exe

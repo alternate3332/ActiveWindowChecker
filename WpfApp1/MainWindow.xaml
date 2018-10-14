@@ -9,10 +9,14 @@
         Loaded="MainWindow_Loaded"
         Title="MainWindow" Height="300" Width="300">
     <Grid Width="300" Height="300" Name="RootGrid" >
-        <Label x:Name="ActiveWindow" Content="ActiveWindow :" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="280"/>
-        <Label x:Name="Settings" Content="Settings :" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="280"/>
-        <Label x:Name="OutputPath" Content="OutputPaht :" HorizontalAlignment="Left" Margin="10,18.01,0,0" VerticalAlignment="Top" Width="280"/>
-        <Label x:Name="ErrorLog" Content="Error :" HorizontalAlignment="Left" Margin="10,54.97,0,0" VerticalAlignment="Top" Width="280"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="17*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="ActiveWindow" Content="ActiveWindow :" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="280" Grid.ColumnSpan="2"/>
+        <Label x:Name="Settings" Content="Settings :" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="280" Grid.ColumnSpan="2"/>
+        <Label x:Name="OutputPath" Content="OutputPaht :" HorizontalAlignment="Left" Margin="10,18,0,0" VerticalAlignment="Top" Width="280" Grid.ColumnSpan="2"/>
+        <Label x:Name="ErrorLog" Content="Error :" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="280" Grid.ColumnSpan="2"/>
 
     </Grid>
 
